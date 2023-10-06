@@ -29,7 +29,7 @@ entradas = np.array([[0,0],
 saidas = np.array([0,
                   1,
                   1,
-                  1])
+                  0])
 
 
 '''Matriz de entrada contem 2 colunas, logo são 2 pesos'''
