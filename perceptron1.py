@@ -16,7 +16,7 @@ pesos =  np.array([0.8, 0.1, 0])
 def soma(e, p):
     s = 0
     
-    '''Realiza um produto escalar dos vetores'''
+    '''Realiza um produto escalar dos vetores '''
     return e.dot(p)
         
         
