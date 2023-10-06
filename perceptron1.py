@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Created on Fri Oct  6 9:16:10 2023
 
-This is a temporary script file.
+@author: joaomateus
 """
 import numpy as np
 
