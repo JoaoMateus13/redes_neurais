@@ -54,11 +54,11 @@ pesos1 = 2*np.random.random((3,1))-1
 
 
 '''quantidade de vezes que vai rodar para arrumar os pesos'''
-epocas = 1000000
+epocas = 1
 taxaAprendizagem = 0.6
 momento = 1
 
-
+ 
 for j in range(epocas):
     
     camadaEntrada = entradas
@@ -70,6 +70,11 @@ for j in range(epocas):
     camadaSaida = sigmoid(somaSinapse1)
     
     erroCamadaSaida = saidas - camadaSaida
+    
+    MSE = np.mean((saidas - camadaSaida)**2)
+    
+    RMSE = np.sqrt(np.mean((saidas - camadaSaida)**2))
+    
     mediaAbsoluta = np.mean(abs(erroCamadaSaida))
     
     print("Erro: " + str(mediaAbsoluta))
