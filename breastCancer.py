@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct  6 15:01:21 2023
+Created on Tue Oct 17 00:48:45 2023
 
-@author: joaomateus
+@author: joaom
 """
 
 import numpy as np
+from sklearn import datasets
+
 
 
 
@@ -19,43 +21,29 @@ def sigmoidDerivada(sig):
     return sig*(1-sig)
 
 
-a = sigmoid(0.5)
-
-
-aDerivada = sigmoidDerivada(a)
-
-
-entradas = np.array([[0,0],
-                    [0,1],
-                    [1,0],
-                    [1,1]])
-
-saidas = np.array([[0],
-                   [1],
-                   [1],
-                   [0]])
 
 
 
-#pesos0 = np.array([[-0.424, -0.740, -0.961],
-#                   [0.358, -0.577, -0.469]])
+base = datasets.load_breast_cancer()
+entradas = base.data
+valoresSaida = base.target
+saidas = np.empty([569,1], dtype = int)
 
-pesos0 = 2*np.random.random((2,3))-1
+for i in range(len(valoresSaida)):
+    saidas[i] = valoresSaida[i]
 
 
 
-#pesos1 = np.array([[-0.017], 
-#                   [-0.893], 
-#                   [0.148]])
+pesos0 = 2*np.random.random((30,15))-1
 
-pesos1 = 2*np.random.random((3,1))-1
+pesos1 = 2*np.random.random((15,1))-1
 
 
 
 
 '''quantidade de vezes que vai rodar para arrumar os pesos'''
-epocas = 1000
-taxaAprendizagem = 0.6
+epocas = 100000
+taxaAprendizagem = 0.2
 momento = 1
 
  
@@ -101,53 +89,4 @@ for j in range(epocas):
     camadaEntradaTransposta = camadaEntrada.T
     pesosNovo0 = camadaEntradaTransposta.dot(deltaCamadaOculta)
     pesos0 = (pesos0 * momento) + (pesosNovo0 * taxaAprendizagem)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
